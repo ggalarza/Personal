@@ -55,7 +55,7 @@ yotpoApp.loadScript = function(url, callback) {
     var js = document.createElement('script'); 
     js.async = true;  
     js.src = url;
-    head.appendChild(js);
+    // head.appendChild(js);
     if(callback) {
       if (js.addEventListener) { 
         js.addEventListener('load', callback);

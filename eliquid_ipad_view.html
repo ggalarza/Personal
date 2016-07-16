@@ -1,76 +1,51 @@
-<div class="row product-page-content">
-	<div rich-snippet="" content="ProductCtrl.productData.richsnippet" class="ng-isolate-scope"></div>
+<div class="row product-page-content" ng-cloak>
+	<div rich-snippet content="ProductCtrl.productData.richsnippet"></div>
 	<div class="mobile-product-header no-gutter col-xs-12 col-sm-12 visible-xs hidden-sm">
 		<div class="title-review-stars col-xs-12 col-sm-12">
-			<h1 class="product-name text-center-imp">V2 Platinum Red E-Liquid</h1>
+			<h1 class="product-name text-center-imp">%%GLOBAL_prod_name%%</h1>
 			<div class="text-center margtop-5">
-				<span ng-mouseleave="reset()" ng-keydown="onKeydown($event)" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" rating="" ng-model="ProductCtrl.productData.rating" max="ProductCtrl.maxRating" readonly="readonly" class="ratings ng-isolate-scope ng-pristine ng-valid">
-    <!-- ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index -->
-</span>
+				<div rating ng-model="ProductCtrl.productData.rating" max="ProductCtrl.maxRating" readonly="ProductCtrl.isReadonly" class="ratings"></div>
 				<a class="reviews-text-link" scroll-to="reviews" ng-click="ProductCtrl.active('reviews')">
-					<!-- ngIf: ProductCtrl.productData.numreviews > 0 -->
-					<!-- ngIf: ProductCtrl.productData.numreviews === 0 --><span ng-if="ProductCtrl.productData.numreviews === 0" class="ng-scope">Be the first to review this product.</span><!-- end ngIf: ProductCtrl.productData.numreviews === 0 -->
+					<span ng-if="ProductCtrl.productData.numreviews > 0"><span ng-bind="ProductCtrl.productData.numreviews"></span> product reviews</span>
+					<span ng-if="ProductCtrl.productData.numreviews === 0">Be the first to review this product.</span>
 				</a>
 			</div>
 		</div>
 	</div>
-	
-	<div class="col-md-12 hidden-xs visible-sm">
+	<div class="col-md-12 hidden-xs visible-sm visible-md visible-lg visible-xl">
 		<div class="col-sm-7 col-md-9">
-			<h1 class="product-name">V2 Platinum Red E-Liquid</h1>
+			<h1 class="product-name">%%GLOBAL_prod_name%%</h1>
 		</div>
 		<div class="price-v4f-savings pull-right col-sm-4 col-md-3">
-			<!-- ngIf: ProductCtrl.productData.subItems.minMaxPrice.minPrice!='0.00' --><div class="product-image-price ng-scope" ng-if="ProductCtrl.productData.subItems.minMaxPrice.minPrice!='0.00'">
+			<div class="product-image-price" ng-if="ProductCtrl.productData.subItems.minMaxPrice.minPrice!='0.00'">
 				<div class="price-info">
-					<p ng-show="ProductCtrl.productData.isComboPrice" class="ng-hide">Combo Pricing</p>
-					<p class="product-price ng-binding" ng-bind="(ProductCtrl.selectedProducts[0][0].salePrice | currency)">$16.95</p>
-					<p class="v4f-points ng-binding" ng-bind="'or ' + ProductCtrl.selectedProducts[0][0].v4fPoints">or 170 V4F pts</p>
-					<div ng-hide="ProductCtrl.selectedProducts[0][0].retailPrice == ProductCtrl.selectedProducts[0][0].salePrice" class="ng-hide">
-						<p class="msrp">Was <span ng-bind="ProductCtrl.selectedProducts[0][0].retailPrice" class="ng-binding">16.95</span></p>
-						<p class="savings">You save <span ng-bind="(ProductCtrl.selectedProducts[0][0].retailPrice - ProductCtrl.selectedProducts[0][0].salePrice | currency)" class="ng-binding">$0.00</span></p>
+					<p ng-show="ProductCtrl.productData.isComboPrice">Combo Pricing</p>
+					<p class="product-price" ng-bind="(ProductCtrl.selectedProducts[0][0].salePrice | currency)"></p>
+					<p class="v4f-points" ng-bind="'or ' + ProductCtrl.selectedProducts[0][0].v4fPoints"></p>
+					<div ng-hide="ProductCtrl.selectedProducts[0][0].retailPrice == ProductCtrl.selectedProducts[0][0].salePrice">
+						<p class="msrp">Was <span ng-bind="ProductCtrl.selectedProducts[0][0].retailPrice"></span></p>
+						<p class="savings">You save <span ng-bind="(ProductCtrl.selectedProducts[0][0].retailPrice - ProductCtrl.selectedProducts[0][0].salePrice | currency)"></span></p>
 					</div>
 				</div>
-			</div><!-- end ngIf: ProductCtrl.productData.subItems.minMaxPrice.minPrice!='0.00' -->
+			</div>
 		</div>
 	</div>
 	
 	<div class="product-availability-summary col-xs-12 col-sm-6 col-md-5 col-lg-5">
-		<div class="product-gallery col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<div ng-class="ProductCtrl.setProdImageClass()" class="selected-image col-lg-12 col-xs-8 hidden-xs col-sm-12">
-				<img class="img-responsive img-center feature-image prodid2574-img" ng-src="http://v2.local/product_images/e/505/v2-red-product-img-585x375__52937_thumb.jpg" alt="V2 Platinum Red E-Liquid" title="V2 Platinum Red E-Liquid" src="http://v2.local/product_images/e/505/v2-red-product-img-585x375__52937_thumb.jpg">
+		<div class="product-gallery col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+			<div class="selected-image col-lg-12 hidden-xs col-sm-12">
+				<img class="img-responsive img-center feature-image prodid{{ProductCtrl.productData.productId}}-img" ng-src="{{ProductCtrl.selected.stdThumbImgUrl}}" alt="{{ProductCtrl.selected.altText}}" title="{{ProductCtrl.selected.altText}}" />
 			</div>
-			<!-- ngIf: ProductCtrl.productData.mobImgUrl != '' --><div ng-if="ProductCtrl.productData.mobImgUrl != ''" class="selected-image col-xs-8 hidden-sm hidden-md hidden-lg ng-scope">
-                <img class="img-responsive img-center feature-image" ng-src="http://v2.local/product_images/r/566/v2-red-product-585x375-mobile__03409_std.jpg" height="350" alt="V2 Platinum Red E-Liquid" title="V2 Platinum Red E-Liquid" src="http://v2.local/product_images/r/566/v2-red-product-585x375-mobile__03409_std.jpg">
-	        </div><!-- end ngIf: ProductCtrl.productData.mobImgUrl != '' -->
+			<div ng-if="ProductCtrl.productData.mobImgUrl != ''" class="selected-image col-xs-8 hidden-sm hidden-md hidden-lg">
+                <img class="img-responsive img-center feature-image" ng-src="{{ProductCtrl.productData.mobImgUrl}}" height="350" alt="{{ProductCtrl.selected.altText}}" title="{{ProductCtrl.selected.altText}}" />
+	        </div>
 			<div class="hidden-sm hidden-md hidden-lg col-xs-4">
 				<div class="padtop-10 text-center row"><label class="margbottom-0">E-Liquid DNA</label></div>
-				<!-- ngRepeat: (flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map --><div class="text-center ng-scope" ng-repeat="(flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map" ng-click="ProductCtrl.openAttributePopup(ProductCtrl.productData.flavorattributeids_map)">
+				<div class="text-center" ng-repeat="(flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map" ng-click="ProductCtrl.openAttributePopup(ProductCtrl.productData.flavorattributeids_map)">
 
-					<div class="indicator icon-e-liquid-attribute-level3"></div>
-					<div class="indicator-text ng-binding">Tobacco Taste</div>
-				</div><!-- end ngRepeat: (flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map --><div class="text-center ng-scope" ng-repeat="(flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map" ng-click="ProductCtrl.openAttributePopup(ProductCtrl.productData.flavorattributeids_map)">
-
-					<div class="indicator icon-e-liquid-attribute-level3"></div>
-					<div class="indicator-text ng-binding">Throat Hit</div>
-				</div><!-- end ngRepeat: (flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map --><div class="text-center ng-scope" ng-repeat="(flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map" ng-click="ProductCtrl.openAttributePopup(ProductCtrl.productData.flavorattributeids_map)">
-
-					<div class="indicator icon-e-liquid-attribute-level1"></div>
-					<div class="indicator-text ng-binding">Sweetness</div>
-				</div><!-- end ngRepeat: (flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map --><div class="text-center ng-scope" ng-repeat="(flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map" ng-click="ProductCtrl.openAttributePopup(ProductCtrl.productData.flavorattributeids_map)">
-
-					<div class="indicator icon-e-liquid-attribute-level1"></div>
-					<div class="indicator-text ng-binding">PG / Blend / VG</div>
-				</div><!-- end ngRepeat: (flavorattributeid,value) in ProductCtrl.productData.flavorattributeids_map -->
+					<div class="indicator icon-e-liquid-attribute-level{{value.indicator}}"></div>
+					<div class="indicator-text">{{value.flavorname}}</div>
+				</div>
 <!--				<ul class="dna-popup">
 							<li ng-repeat="(flavorattributeid,value) in ngDialogData.productData" class="clear-both">"{{value.flavorname}}" scale from 0-4</li>
 						</ul>-->
@@ -96,14 +71,14 @@
 				<div class="price-info text-center-imp">
 					<div>
 						<div class="margtop-5 margbottom-5">
-							<span ng-show="ProductCtrl.productData.subItems.minMaxPrice.is_min" class="font-20">Starting at&nbsp;</span><span class="product-price ng-binding" ng-bind="(ProductCtrl.productData.subItems.minMaxPrice.minPrice | currency)">$16.95</span>
-							<div class="v4f-points margtop-5 ng-binding" ng-bind="ProductCtrl.productData.subItems.minMaxPrice.minV4FPoints">170 V4F pts</div>
+							<span ng-show="ProductCtrl.productData.subItems.minMaxPrice.is_min" class="font-20">Starting at&nbsp;</span><span class="product-price" ng-bind="(ProductCtrl.productData.subItems.minMaxPrice.minPrice | currency)"></span>
+							<div class="v4f-points margtop-5" ng-bind="ProductCtrl.productData.subItems.minMaxPrice.minV4FPoints"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="customize-btn-container">
-				<div class="add-to-cart btn btn-primary col-xs-12 col-sm-12 margbottom-20" ng-click="ProductCtrl.customizeEliquidProduct(ProductCtrl.productData)"><img class="loading-icon" style="display:none;" src="/images/loader/white-circle.gif" heigth="15" width="15">Customize</div>
+				<div class="add-to-cart btn btn-primary col-xs-12 col-sm-12 margbottom-20" ng-click="ProductCtrl.customizeEliquidProduct(ProductCtrl.productData)"><img class="loading-icon" style="display:none;" src="/images/loader/white-circle.gif" heigth="15" width="15" />Customize</div>
 			</div>
 			<script id="eliquid-customize-template.html" type="text/ng-template">
 				<div class="text-center padbottom-20" style="font-size:22px;font-family:'Gibson Light';">CUSTOMIZE OPTIONS</div>
@@ -111,7 +86,7 @@
 					<div ng-repeat="accessoryGroup in NgDialogAddonsCtrl.productData.subItems.accessoryGroups" ng-init="groupIndex = $index; NgDialogAddonsCtrl.productCodes.push([]);">
 				        <div ng-repeat="item in accessoryGroup.groupItems" ng-init="itemIndex = $index;NgDialogAddonsCtrl.productCodes[groupIndex].push({'codes':item.defaultProductCodeValues, 'groupId': item.groupId, 'groupName': item.groupName});">
 							<div class="row">
-				                <div class="configurator-section col-sm-12">
+				                <div class="configurator-section hidden-sm">
 									<form novalidate>
 					                    <div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null">
 					                        <div class="{{item.groupTypeName || item.groupName | cssClass }}-{{index.name || item.products['name'] | cssClass}}-container form-group">
@@ -161,69 +136,33 @@
 		<div class="clearfix"></div>
 	</div>
 	<div class="product-price-configurator col-xs-12 col-sm-6 col-md-7 col-lg-7">
-		<div class="row col-sm-12 hidden-xs">
+		<div class="row col-sm-12 visible-sm visible-md visible-lg visible-xl">
 			<div class="title-review-stars col-xs-6 col-sm-12 col-md-8 col-lg-8">
-				<span ng-mouseleave="reset()" ng-keydown="onKeydown($event)" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" rating="" ng-model="ProductCtrl.productData.rating" max="ProductCtrl.maxRating" readonly="readonly" class="ratings ng-isolate-scope ng-pristine ng-valid">
-    <!-- ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index --><i ng-repeat="r in range track by $index" ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope glyphicon-star-empty" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')">
-        <span class="sr-only ng-binding">( )</span>
-    </i><!-- end ngRepeat: r in range track by $index -->
-</span>
+				<div rating ng-model="ProductCtrl.productData.rating" max="ProductCtrl.maxRating" readonly="ProductCtrl.isReadonly" class="ratings"></div>
 				<a class="reviews-text-link" scroll-to="reviews" ng-click="ProductCtrl.active('reviews')">
-					<!-- ngIf: ProductCtrl.productData.numreviews > 0 -->
-					<!-- ngIf: ProductCtrl.productData.numreviews === 0 --><span ng-if="ProductCtrl.productData.numreviews === 0" class="ng-scope">Be the first to review this product.</span><!-- end ngIf: ProductCtrl.productData.numreviews === 0 -->
+					<span ng-if="ProductCtrl.productData.numreviews > 0"><span ng-bind="ProductCtrl.productData.numreviews"></span> product reviews</span>
+					<span ng-if="ProductCtrl.productData.numreviews === 0">Be the first to review this product.</span>
 				</a>
 			</div>
 			
 			<div class="col-sm-12 col-md-12">
-				<p class="padtop-10 text-justify ng-binding" ng-bind-html="ProductCtrl.productData.prodshortdescription"><p><span>One of our most popular standard flavors, V2 Red perfectly replicates the taste of cured Virginia tobacco; capturing its rich profile with the bright overtones that flue-cured tobacco is known for.</span></p></p>
+				<p class="padtop-10 text-justify" ng-bind-html="ProductCtrl.productData.prodshortdescription"></p>
 			</div>
 			
 			<div class="col-sm-12 col-md-12" ng-show="ProductCtrl.productData.flavorattributeids_map">
 				<div>
 					<label class="variation-label padtop-15 padbottom-10 pull-left">E-Liquid DNA</label>
 					<span class="pull-left padtop-5">
-						<a href="javascript:void(0)" class="asr-info-dna ng-isolate-scope" role="button" qtip="" qtip-classes="qtip-bootstrap qtip-shadow" qtip-template="attribute_tooltip_template.html" qtip-template-object="ProductCtrl.productData.flavorattributeids_map" data-hasqtip="0">
-							<img src="http://v2.local/templates/v2pro/images/info-icon.png" width="13px" height="13px">
+						<a href="javascript:void(0)" class="asr-info-dna" role="button" qtip  qtip-classes="qtip-bootstrap qtip-shadow" qtip-template="attribute_tooltip_template.html" qtip-template-object="ProductCtrl.productData.flavorattributeids_map">
+							<img src="%%GLOBAL_ShopPath%%/templates/v2pro/images/info-icon.png" width="13px" height="13px" />
 						</a>
 					</span>
 				</div>
-				<div class="row hidden-sm clear-both">
-					<!-- ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level3"></div>
-						<div class="ng-binding">Throat Hit</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level3"></div>
-						<div class="ng-binding">Tobacco Taste</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level1"></div>
-						<div class="ng-binding">Sweetness</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level1"></div>
-						<div class="ng-binding">PG / Blend / VG</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true -->
-				</div>
-  <div class="row visible-sm clear-both">
-					<!-- ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-sm-6 col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level3"></div>
-						<div class="ng-binding">Throat Hit</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level3"></div>
-						<div class="ng-binding">Tobacco Taste</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-sm-6 col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level1"></div>
-						<div class="ng-binding">Sweetness</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true --><div class="col-md-3 text-center ng-scope" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
-						<div class="indicator icon-e-liquid-attribute-level1"></div>
-						<div class="ng-binding">PG / Blend / VG</div>
-					</div><!-- end ngRepeat: flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true -->
+				<div class="row clear-both">
+					<div class="col-sm-3 col-md-3 text-center" ng-repeat="flavorAttribute in ProductCtrl.productData.flavorattributeids_map | orderBy:'-attributedisplayorder':true ">
+						<div class="indicator icon-e-liquid-attribute-level{{flavorAttribute.indicator}}"></div>
+						<div>{{flavorAttribute.flavorname}}</div>
+					</div>
 				</div>
 			</div>
 <!--			//				<ul class="attribute-tooltip">
@@ -237,8 +176,8 @@
 				<div>
 					<label class="variation-label padtop-30 padbottom-10 pull-left">Strength</label>
 					<span class="pull-left padtop-20">
-						<a href="javascript:void(0)" class="asr-info-strength ng-isolate-scope" role="button" qtip-classes="qtip-bootstrap qtip-shadow" qtip="" qtip-template="strength_tooltip_template.html" data-hasqtip="1">
-							<img src="http://v2.local/templates/v2pro/images/info-icon.png" width="13px" height="13px">
+						<a href="javascript:void(0)" class="asr-info-strength" role="button" qtip-classes="qtip-bootstrap qtip-shadow" qtip qtip-template="strength_tooltip_template.html">
+							<img src="%%GLOBAL_ShopPath%%/templates/v2pro/images/info-icon.png" width="13px" height="13px" />
 						</a>
 					</span>
 				</div>
@@ -247,277 +186,86 @@
 				<span class="strength-tooltip">This is the percentage of nicotine concentration in the e-liquid. The higher the number, the "stronger" the mixture. Your preference may change over time, but typically heavier smokers or smokers who prefer "full flavored" cigarettes will select 1.8% or 2.4%. Moderate smokers will choose 1.2% or 1.8%, and light smokers will choose 0.6% or 1.2%. Many vapers gradually go down to 0.0% nicotine.</span>
 			</script>
 		</div>
-		<!-- ngRepeat: accessoryGroup in ProductCtrl.productData.subItems.accessoryGroups --><div class="hidden-xs visible-sm ng-scope" ng-repeat="accessoryGroup in ProductCtrl.productData.subItems.accessoryGroups" ng-init="groupIndex = $index; ProductCtrl.productCodes.push([]);">
-	        <!-- ngRepeat: item in accessoryGroup.groupItems --><div ng-repeat="item in accessoryGroup.groupItems" ng-init="itemIndex = $index;ProductCtrl.productCodes[groupIndex].push({'codes':item.defaultProductCodeValues, 'groupId': item.groupId, 'groupName': item.groupName});" class="ng-scope">
+		<div class="hidden-xs visible-sm visible-md visible-lg visible-xl" ng-repeat="accessoryGroup in ProductCtrl.productData.subItems.accessoryGroups" ng-init="groupIndex = $index; ProductCtrl.productCodes.push([]);">
+	        <div ng-repeat="item in accessoryGroup.groupItems" ng-init="itemIndex = $index;ProductCtrl.productCodes[groupIndex].push({'codes':item.defaultProductCodeValues, 'groupId': item.groupId, 'groupName': item.groupName});">
 				<div class="row">
-	                <div class="configurator-section hidden-sm">
-						<form novalidate="" class="ng-pristine ng-valid">
-		                    <!-- ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope">
-		                        <div class="e-liquid-strength-container form-group">
-		                            <!-- ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="00" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		0%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="06" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		0.6%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="12" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		1.2%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="18" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		1.8%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="24" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		2.4%
-		                                </option><!-- end ngRepeat: value in index.values -->
+	                <div class="configurator-section col-sm-12">
+						<form novalidate>
+		                    <div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null">
+		                        <div class="{{item.groupTypeName || item.groupName | cssClass }}-{{index.name || item.products['name'] | cssClass}}-container form-group">
+		                            <label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize" ng-bind="index.name"><span class="icon-help variation-info" popover="{{index.infoText | unsafe}}" popover-title="{{index.infoTitle}}" popover-trigger="mouseenter"></span></label>
+		                            <p class="variation-instructions" ng-bind="variation.instructions"></p>
+		                            <select class="form-control" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
+		                                <option ng-selected="{{value == ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]}}"
+		                                        ng-repeat="value in index.values"
+		                                        value="{{value}}" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)">
+		                                  		{{ (index.name | lowercase) == 'size' ? ProductCtrl.thisSwatchLabel(item.itemType, index.name, value) + ' - ' + (ProductCtrl.getGroupVariationPrice(index.skuIndex, value, itemIndex, groupIndex) | currency) : ProductCtrl.thisSwatchLabel(item.itemType, index.name, value)}}
+		                                </option>
 		                            </select>
 		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope">
-		                        <div class="e-liquid-size-container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name">size</label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="25" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		25ml - $16.95
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="50" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		50ml - $29.95
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope ng-hide">
-		                        <div class="e-liquid--container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name"></label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="EL" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope ng-hide">
-		                        <div class="e-liquid-flavor-container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name">flavor</label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="CW" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		V2 Red
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope ng-hide">
-		                        <div class="e-liquid--container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name"></label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="DU" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true -->
+		                    </div>
 							<div class="row current-selection">
-								<span class="availability icon-clock col-xs-1 col-sm-1 text-center" data-group-index="0" data-item-index="0" ng-style="{'color':ProductCtrl.selectedProducts[groupIndex][itemIndex].availabilityStatus.availhex}" style="color: rgb(0, 128, 0);">
+								<span class="availability icon-clock col-xs-1 col-sm-1 text-center" data-group-index="{{groupIndex}}" data-item-index="{{itemIndex}}" ng-style="{'color':ProductCtrl.selectedProducts[groupIndex][itemIndex].availabilityStatus.availhex}">
 								</span>
-								<span class="row col-xs-9 col-sm-9 ng-binding" ng-bind="ProductCtrl.selectedProducts[groupIndex][itemIndex].productName">V2 Red (25 ml) 1.2% Nicotine</span>
+								<span class=" row col-xs-9 col-sm-9" ng-bind="ProductCtrl.selectedProducts[groupIndex][itemIndex].productName"></span>
 							</div>
 						</form>
 						<div class="pull-right">
-							<!-- ngIf: ProductCtrl.productData.allowPurchases == 1 --><div class="col-sm-3 ng-scope" ng-if="ProductCtrl.productData.allowPurchases == 1">
-							  <button ng-hide="ProductCtrl.displayOOSAlert" class="add-to-cart btn btn-primary" ng-click="ProductCtrl.addToCart()"><img class="loading-icon ng-hide" ng-show="ProductCtrl.addToCartLoader" src="/images/loader/white-circle.gif" height="18" width="18"> Add to Cart</button>
-							</div><!-- end ngIf: ProductCtrl.productData.allowPurchases == 1 -->
+							<div class="col-sm-3" ng-if="ProductCtrl.productData.allowPurchases == 1">
+							  <button ng-hide="ProductCtrl.displayOOSAlert" class="add-to-cart btn btn-primary" ng-click="ProductCtrl.addToCart()"><img class="loading-icon" ng-show="ProductCtrl.addToCartLoader" src="/images/loader/white-circle.gif" height="18" width="18" /> Add to Cart</button>
+							</div>
 						</div>
 						<div class="form-group pull-right">
-	                        <div class="fs-counter input-group ng-isolate-scope quantity-counter" ng-class="addclass" ng-style="width" counter="" value="ProductCtrl.cartRequestParameters.qty" data-min="1" data-max="10" data-step="1" data-addclass="quantity-counter" data-width="130px" data-editable="" style="width: 130px;"><span class="input-group-btn" ng-click="minus()"><button class="btn btn-default btn-minus"><span class="glyphicon glyphicon-minus"></span></button></span><input type="text" class="form-control text-center ng-pristine ng-valid" ng-model="value" ng-blur="blurred()" ng-change="changed()" ng-readonly="readonly"><span class="input-group-btn" ng-click="plus()"><button class="btn btn-default btn-plus"><span class="glyphicon glyphicon-plus"></span></button></span></div>
+	                        <div counter value="ProductCtrl.cartRequestParameters.qty"
+	                          data-min="1"
+	                          data-max="10"
+	                          data-step="1"
+	                          data-addclass="quantity-counter"
+	                          data-width="130px"
+	                          data-editable>
+	                        </div>
 	                    </div>
 	                </div>
 				</div>
 			</div>
-<div class="configurator-section col-sm-12">
-						<form novalidate="" class="ng-pristine ng-valid">
-		                    <!-- ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope">
-		                        <div class="e-liquid-strength-container form-group">
-		                            <!-- ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="00" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		0%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="06" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		0.6%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="12" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		1.2%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="18" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		1.8%
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="24" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		2.4%
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope">
-		                        <div class="e-liquid-size-container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name">size</label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="25" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		25ml - $16.95
-		                                </option><!-- end ngRepeat: value in index.values --><option ng-selected="false" ng-repeat="value in index.values" value="50" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope">
-		                                  		50ml - $29.95
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope ng-hide">
-		                        <div class="e-liquid--container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name"></label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="EL" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope ng-hide">
-		                        <div class="e-liquid-flavor-container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name">flavor</label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="CW" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		V2 Red
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true --><div ng-repeat="index in item.skuIndexes | orderBy:'-displayOrder':true" ng-hide="index.displayOrder == null" class="ng-scope ng-hide">
-		                        <div class="e-liquid--container form-group">
-		                            <!-- ngIf: index.name!='strength' --><label ng-if="index.name!='strength'" class="variation-label text-left text-capitalize ng-binding ng-scope" ng-bind="index.name"></label><!-- end ngIf: index.name!='strength' -->
-		                            <p class="variation-instructions ng-binding" ng-bind="variation.instructions"></p>
-		                            <select class="form-control ng-pristine ng-valid" ng-model="ProductCtrl.productCodes[groupIndex][itemIndex].codes[index.skuIndex]">
-		                                <!-- ngRepeat: value in index.values --><option ng-selected="true" ng-repeat="value in index.values" value="DU" ng-disabled="ProductCtrl.isGroupVariationAvailable(index.skuIndex, value, itemIndex, groupIndex)" class="ng-binding ng-scope" selected="selected">
-		                                  		
-		                                </option><!-- end ngRepeat: value in index.values -->
-		                            </select>
-		                        </div>
-		                    </div><!-- end ngRepeat: index in item.skuIndexes | orderBy:'-displayOrder':true -->
-							<div class="row current-selection">
-								<span class="availability icon-clock col-xs-1 col-sm-1 text-center" data-group-index="0" data-item-index="0" ng-style="{'color':ProductCtrl.selectedProducts[groupIndex][itemIndex].availabilityStatus.availhex}" style="color: rgb(0, 128, 0);">
-								</span>
-								<span class="row col-xs-9 col-sm-9 ng-binding" ng-bind="ProductCtrl.selectedProducts[groupIndex][itemIndex].productName">V2 Red (25 ml) 1.2% Nicotine</span>
-							</div>
-						</form>
-						<div class="pull-right">
-							<!-- ngIf: ProductCtrl.productData.allowPurchases == 1 --><div class="col-sm-3 ng-scope" ng-if="ProductCtrl.productData.allowPurchases == 1">
-							  <button ng-hide="ProductCtrl.displayOOSAlert" class="add-to-cart btn btn-primary" ng-click="ProductCtrl.addToCart()"><img class="loading-icon ng-hide" ng-show="ProductCtrl.addToCartLoader" src="/images/loader/white-circle.gif" height="18" width="18"> Add to Cart</button>
-							</div><!-- end ngIf: ProductCtrl.productData.allowPurchases == 1 -->
-						</div>
-						<div class="form-group pull-right">
-	                        <div class="fs-counter input-group ng-isolate-scope quantity-counter" ng-class="addclass" ng-style="width" counter="" value="ProductCtrl.cartRequestParameters.qty" data-min="1" data-max="10" data-step="1" data-addclass="quantity-counter" data-width="130px" data-editable="" style="width: 130px;"><span class="input-group-btn" ng-click="minus()"><button class="btn btn-default btn-minus"><span class="glyphicon glyphicon-minus"></span></button></span><input type="text" class="form-control text-center ng-pristine ng-valid" ng-model="value" ng-blur="blurred()" ng-change="changed()" ng-readonly="readonly"><span class="input-group-btn" ng-click="plus()"><button class="btn btn-default btn-plus"><span class="glyphicon glyphicon-plus"></span></button></span></div>
-	                    </div>
-	                </div><!-- end ngRepeat: item in accessoryGroup.groupItems -->
-		</div><!-- end ngRepeat: accessoryGroup in ProductCtrl.productData.subItems.accessoryGroups -->
+		</div>
 	</div>
-<!-- ngIf: ProductCtrl.relatedProducts -->
+<div class="product-gallery hidden-xs hidden-sm" ng-if="ProductCtrl.relatedProducts">
+	<div class="col-md-12"><h3 class="margleft-50">Related Products</h3></div>
+	<div class="thumbsshell col-md-12 col-lg-12 no-gutter margtop-10 margbottom-30">
+		<div class="col-sm-2 col-md-2 col-lg-2 margtop-15" ng-if="ProductCtrl.relatedProductCount > 5">
+			<div class="icon-caret-left text-center" ng-click="ProductCtrl.scrollThumbLeft()"></div>
+		</div>
+		<div class="thumbswrapper" ng-class="ProductCtrl.setRelProdContClass()">
+			<ul class="thumbslist" ng-style="thumbposition">
+				<li ng-repeat="image in ProductCtrl.relatedProducts">
+					<div class="thumbwrapper">
+						<a target="_self" class="text-center" ng-href="{{image.prod_url}}">
+							<img class="thumbnail" ng-src="{{image.thumb_url}}" alt="{{image.alt_text}}" />
+							<div class="text">{{image.prod_name}}</div>
+							<div class="text" ng-if="image.prod_price!='0.00'"><span ng-if="image.is_min_price">Starting at </span>{{image.prod_price|currency}}</div>
+							<div class="text" ng-if="image.prod_price=='0.00'">&nbsp;</div>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="scroll-button col-sm-2 col-md-2 col-lg-2 margtop-15" ng-if="ProductCtrl.relatedProductCount > 5">
+			<div class="icon-caret-right text-center" ng-click="ProductCtrl.scrollThumbRight()"></div>
+		</div>
+	</div>
+</div>
 	<div class="row product-btm-tabs">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		  <div tabset="" class="ng-isolate-scope">
-  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
-			 <!-- ngRepeat: t in ProductCtrl.tabs --><li ng-class="{active: active, disabled: disabled}" tab="" ng-repeat="t in ProductCtrl.tabs" heading="Description" id="description" active="t.active" select="ProductCtrl.active(t.id)" class="ng-isolate-scope active">
-  <a href="" ng-click="select()" tab-heading-transclude="" class="ng-binding">Description</a>
-</li><!-- end ngRepeat: t in ProductCtrl.tabs --><li ng-class="{active: active, disabled: disabled}" tab="" ng-repeat="t in ProductCtrl.tabs" heading="Reviews" id="reviews" active="t.active" select="ProductCtrl.active(t.id)" class="ng-isolate-scope">
-  <a href="" ng-click="select()" tab-heading-transclude="" class="ng-binding">Reviews</a>
-</li><!-- end ngRepeat: t in ProductCtrl.tabs -->
-	      </ul>
-  <div class="tab-content">
-    <!-- ngRepeat: tab in tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabs" ng-class="{active: tab.active}" tab-content-transclude="tab">
-    
-	            <!-- ngInclude: t.loadUrl --><div ng-include="t.loadUrl" class="tab-pane-content ng-scope"><div class="row ng-scope">
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div ng-bind-html="ProductCtrl.productData.description | unsafe" compile-template="" class="ng-binding ng-scope"><p><span style="">One of our most popular standard flavors, V2 Red perfectly replicates the taste of cured Virginia tobacco; capturing its rich profile with the bright overtones that flue-cured tobacco is known for.</span></p></div>
-	</div>
-</div></div>
-	        </div><!-- end ngRepeat: tab in tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active}" tab-content-transclude="tab">
-    
-	            <!-- ngInclude: t.loadUrl --><div ng-include="t.loadUrl" class="tab-pane-content ng-scope"><div ng-controller="ReviewsController as ReviewsCtrl" class="ng-scope">
-	<div class="row vertical-align-center reviews-top-pager-container ng-hide" ng-show="!ReviewsCtrl.showReviewForm">
-		<div class="col-sm-9">
-			<ul class="pagination-sm pagination ng-isolate-scope ng-pristine ng-valid" pagination="" total-items="ReviewsCtrl.reviewsPager.totalItems" ng-model="ReviewsCtrl.reviewsPager.currentPage" max-size="ReviewsCtrl.reviewsPager.maxSize" rotate="false" num-pages="ReviewsCtrl.reviewsPager.numPages" ng-change="ReviewsCtrl.getReviewData(ReviewsCtrl.reviewsPager.currentPage)">
-  <!-- ngIf: boundaryLinks -->
-  <!-- ngIf: directionLinks --><li ng-if="directionLinks" ng-class="{disabled: noPrevious()}" class="ng-scope disabled"><a href="" ng-click="selectPage(page - 1)" class="ng-binding">Previous</a></li><!-- end ngIf: directionLinks -->
-  <!-- ngRepeat: page in pages track by $index --><li ng-repeat="page in pages track by $index" ng-class="{active: page.active}" class="ng-scope active"><a href="" ng-click="selectPage(page.number)" class="ng-binding">1</a></li><!-- end ngRepeat: page in pages track by $index -->
-  <!-- ngIf: directionLinks --><li ng-if="directionLinks" ng-class="{disabled: noNext()}" class="ng-scope disabled"><a href="" ng-click="selectPage(page + 1)" class="ng-binding">Next</a></li><!-- end ngIf: directionLinks -->
-  <!-- ngIf: boundaryLinks -->
-</ul>
-		</div>
-		<div class="col-sm-3">
-			<button class="btn btn-primary" ng-click="ReviewsCtrl.showReviewForm = ! ReviewsCtrl.showReviewForm">Write a Review</button>
-		</div>
-	</div>
-	<div class="row ng-hide" ng-show="!ReviewsCtrl.showReviewForm">
-		<div class="col-sm-12">
-			<div class="reviews-list">
-				<!-- ngRepeat: item in ReviewsCtrl.reviews.items -->
-			</div>
-		</div>
-	</div>
-	<div class="row" ng-show="ReviewsCtrl.showReviewForm">
-		<div class="col-sm-12">
-			<div>
-			<strong>PLEASE READ BEFORE WRITING YOUR REVIEW</strong>
-				<p class="reviews-attention">V2 products are not marketed for use as a smoking cessation product. If the review contains, quit smoking, stopped smoking or any related phrases implying that V2 products were used as a tool to quit smoking, the review will not be approved. Thank you for your attention to this matter!
-				</p>
-			</div>
-			<h4>Write Your Own Review</h4>
-			<div class="row">
-				<div class="col-sm-8">
-					<form novalidate="" ng-submit="ReviewsCtrl.submit(reviewForm.$valid)" class="product-review-form ng-pristine ng-invalid ng-invalid-required ng-invalid-recaptcha" name="reviewForm">
-						<div class="form-group">
-							<label for="revrating">1. How do you rate this product?</label>
-							<select class="form-control ng-pristine ng-invalid ng-invalid-required" id="revrating" ng-model="ReviewsCtrl.newReview.revrating" name="revrating" required="">
-								<option value=""></option>
-								<option value="5">5 stars (best)</option>
-								<option value="4">4 stars</option>
-								<option value="3">3 stars (average)</option>
-								<option value="2">2 stars</option>
-								<option value="1">1 star (worst)</option>
-							</select>
-							<small ng-show="reviewForm.revrating.$error.required &amp;&amp; (!reviewForm.revrating.$pristine || submitted)" class="help-block error ng-hide">Please select a rating</small>
-						</div>
-						<div class="form-group">
-							<label for="revtitle">2. Write a headline for your review here:</label>
-							<input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="revtitle" placeholder="Title" ng-model="ReviewsCtrl.newReview.revtitle" name="revtitle" required="">
-							<small ng-show="reviewForm.revtitle.$error.required &amp;&amp; (!reviewForm.revtitle.$pristine || submitted)" class="help-block error ng-hide">Please enter a title for your review</small>
-						</div>
-						<div class="form-group">
-							<label for="revtext">3. Write your review here:</label>
-							<textarea class="form-control ng-pristine ng-invalid ng-invalid-required" rows="10" id="revtext" ng-model="ReviewsCtrl.newReview.revtext" name="revtext" required=""></textarea>
-							<small ng-show="reviewForm.revtext.$error.required &amp;&amp; (!reviewForm.revtext.$pristine || submitted)" class="help-block error ng-hide">Please enter a few words</small>
-						</div>
-						<div class="form-group">
-							<label for="revfromname">4. Enter your name: (optional)</label>
-							<input type="text" class="form-control ng-pristine ng-valid" id="revfromname" placeholder="Name (optional)" ng-model="ReviewsCtrl.newReview.revfromname">
-						</div>
-						<div class="form-group">
-							<div vc-recaptcha="" theme="'light'" key="$root.reCaptchaKey" on-create="ReviewsCtrl.setWidgetId(widgetId)" on-success="ReviewsCtrl.setResponse(response)" size="'compact'" class="ng-isolate-scope"><div><div style="width: 164px; height: 144px;"><iframe src="https://www.google.com/recaptcha/api2/anchor?k=6LeZMusSAAAAAAnut05WsPZkS1poro9OLXh1Otgs&amp;co=aHR0cDovL3YyLmxvY2FsOjgw&amp;hl=en&amp;v=r20160615154650&amp;theme=light&amp;size=compact&amp;cb=ihvgc1k7myz7" title="recaptcha widget" width="164" height="144" role="presentation" frameborder="0" scrolling="no" name="undefined"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div>
-							<small ng-show="reviewForm.$error.recaptcha &amp;&amp; (!reviewForm.$pristine || submitted)" class="help-block error ng-hide">Please validate reCAPTCHA</small>
-						</div>
-						<button type="submit" class="btn btn-primary review-submit"><img class="loading-icon" style="display:none;" src="/images/loader/white-circle.gif" heigth="18" width="18"> Submit</button>
-						<button type="button" class="btn btn-primary" ng-click="ReviewsCtrl.showReviewForm = !ReviewsCtrl.showReviewForm">Cancel</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row ng-hide" ng-show="!ReviewsCtrl.showReviewForm">
-		<div class="col-sm-12">
-			<ul class="pagination-sm pagination ng-isolate-scope ng-pristine ng-valid" pagination="" total-items="ReviewsCtrl.reviewsPager.totalItems" ng-model="ReviewsCtrl.reviewsPager.currentPage" max-size="ReviewsCtrl.reviewsPager.maxSize" rotate="false" num-pages="ReviewsCtrl.reviewsPager.numPages" ng-change="ReviewsCtrl.getReviewData(reviewsPager.currentPage)">
-  <!-- ngIf: boundaryLinks -->
-  <!-- ngIf: directionLinks --><li ng-if="directionLinks" ng-class="{disabled: noPrevious()}" class="ng-scope disabled"><a href="" ng-click="selectPage(page - 1)" class="ng-binding">Previous</a></li><!-- end ngIf: directionLinks -->
-  <!-- ngRepeat: page in pages track by $index --><li ng-repeat="page in pages track by $index" ng-class="{active: page.active}" class="ng-scope active"><a href="" ng-click="selectPage(page.number)" class="ng-binding">1</a></li><!-- end ngRepeat: page in pages track by $index -->
-  <!-- ngIf: directionLinks --><li ng-if="directionLinks" ng-class="{disabled: noNext()}" class="ng-scope disabled"><a href="" ng-click="selectPage(page + 1)" class="ng-binding">Next</a></li><!-- end ngIf: directionLinks -->
-  <!-- ngIf: boundaryLinks -->
-</ul>
-		</div>
-	</div>
-</div></div>
-	        </div><!-- end ngRepeat: tab in tabs -->
-  </div>
-</div>
+		  <div tabset>
+			 <div tab 
+	            ng-repeat="t in ProductCtrl.tabs" 
+	            heading="{{t.heading}}"
+	            id="{{t.id}}"
+	            active="t.active" select="ProductCtrl.active(t.id)">
+	            <div ng-include="t.loadUrl" class="tab-pane-content"></div>
+	        </div>
+	      </div>
 		</div>
 	</div>
 
-
-        </div>
